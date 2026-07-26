@@ -671,3 +671,73 @@ console.log(
 // ---------- Init ----------
 
 reloadProfile();
+
+async function loadTransactions(){
+
+const {data,error}=await supabase
+
+.from("transactions")
+
+.select("*")
+
+.order("created_at",{ascending:false});
+
+if(error){
+
+console.log(error);
+
+return;
+
+}
+
+const list=document.getElementById("transactionList");
+
+list.innerHTML="";
+
+if(data.length===0){
+
+list.innerHTML="<p>No transactions yet.</p>";
+
+return;
+
+}
+
+data.forEach(item=>{
+
+const div=document.createElement("div");
+
+div.className="transaction";
+
+const sign=item.amount>=0?"+":"";
+
+div.innerHTML=`
+
+<div class="transaction-left">
+
+<div class="transaction-title">
+
+${item.description}
+
+</div>
+
+<div class="transaction-date">
+
+${new Date(item.created_at).toLocaleString()}
+
+</div>
+
+</div>
+
+<div class="transaction-amount ${item.amount>=0?"plus":"minus"}">
+
+${sign}${item.amount} Coins
+
+</div>
+
+`;
+
+list.appendChild(div);
+
+});
+
+}
