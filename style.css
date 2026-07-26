@@ -1,0 +1,1050 @@
+/* =====================================================
+   TaskHub CSS - Part 1
+   Reset • Variables • Navbar • Hero • Cards
+===================================================== */
+
+:root{
+    --bg:#0d1117;
+    --bg2:#161b22;
+    --card:#1f2630;
+    --card2:#242d38;
+    --accent:#4f8cff;
+    --accent2:#6ea8ff;
+    --success:#22c55e;
+    --danger:#ef4444;
+    --warning:#f59e0b;
+    --text:#ffffff;
+    --muted:#a0aec0;
+    --border:rgba(255,255,255,.08);
+    --radius:18px;
+    --shadow:0 20px 45px rgba(0,0,0,.35);
+    --transition:.3s ease;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(160deg,#0d1117,#111827,#0d1117);
+    color:var(--text);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#10151d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--accent);
+    border-radius:20px;
+}
+
+/* Links */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Buttons */
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    transition:var(--transition);
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+/* Inputs */
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:#111827;
+    color:white;
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+input:focus{
+    border-color:var(--accent);
+}
+
+/* Loader */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#0d1117;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.loader-circle{
+    width:80px;
+    height:80px;
+    border:8px solid #233047;
+    border-top:8px solid var(--accent);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin-bottom:25px;
+}
+
+@keyframes spin{
+
+0%{
+transform:rotate(0);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* Navbar */
+
+nav{
+
+position:sticky;
+top:0;
+z-index:999;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+background:rgba(13,17,23,.75);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+
+color:var(--accent);
+
+}
+
+nav ul{
+
+display:flex;
+gap:30px;
+
+list-style:none;
+
+}
+
+nav li{
+
+cursor:pointer;
+transition:.3s;
+
+font-weight:500;
+
+color:var(--muted);
+
+}
+
+nav li:hover{
+
+color:white;
+
+}
+
+nav button{
+
+padding:12px 24px;
+
+background:var(--accent);
+
+border-radius:12px;
+
+font-weight:600;
+
+color:white;
+
+}
+
+nav button:hover{
+
+background:var(--accent2);
+
+}
+
+/* Sections */
+
+section{
+
+padding:70px 8%;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+.active{
+
+display:block;
+
+}
+
+/* Hero */
+
+.hero{
+
+text-align:center;
+
+padding:100px 0;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+margin-bottom:25px;
+
+line-height:1.2;
+
+}
+
+.hero p{
+
+max-width:700px;
+
+margin:auto;
+
+color:var(--muted);
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+.hero button{
+
+margin-top:40px;
+
+padding:16px 40px;
+
+background:linear-gradient(45deg,var(--accent),#2563eb);
+
+color:white;
+
+font-size:17px;
+
+border-radius:14px;
+
+box-shadow:var(--shadow);
+
+}
+
+.hero button:hover{
+
+transform:translateY(-4px);
+
+}
+
+/* Stats */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+margin-top:80px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.04);
+
+backdrop-filter:blur(15px);
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:35px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:var(--accent);
+
+}
+
+.card h2{
+
+font-size:38px;
+
+margin-bottom:12px;
+
+color:var(--accent);
+
+}
+
+.card p{
+
+color:var(--muted);
+
+}
+
+/* Dashboard */
+
+.dashboard{
+
+margin-top:30px;
+
+}
+
+.balance-card{
+
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+padding:45px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+margin-bottom:35px;
+
+}
+
+.balance-card h3{
+
+font-weight:400;
+
+margin-bottom:10px;
+
+}
+
+.balance-card h1{
+
+font-size:48px;
+
+}
+
+.dashboard-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:25px;
+
+}
+
+.box{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+.box:hover{
+
+transform:translateY(-6px);
+
+}
+
+.box h4{
+
+margin-bottom:15px;
+
+color:var(--muted);
+
+}
+
+.box h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+.box button{
+
+padding:12px 22px;
+
+background:var(--success);
+
+border-radius:12px;
+
+color:white;
+
+font-weight:600;
+
+}
+
+.box button:hover{
+
+opacity:.9;
+
+}
+/* =====================================================
+   TaskHub CSS - Part 2
+   Tasks • Wallet • Profile • Modal • Toast
+===================================================== */
+
+/* ---------- Task Section ---------- */
+
+.task-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.task-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.task-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:4px;
+    background:var(--accent);
+    transition:.4s;
+}
+
+.task-card:hover::before{
+    left:0;
+}
+
+.task-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.task-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.task-card p{
+    color:var(--muted);
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.task-card button{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:600;
+    font-size:15px;
+}
+
+.task-card button:hover{
+    background:#2d6df5;
+}
+
+/* ---------- Wallet ---------- */
+
+.wallet-card{
+    max-width:650px;
+    margin:40px auto;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:45px;
+    text-align:center;
+    backdrop-filter:blur(15px);
+}
+
+.wallet-card h3{
+    color:var(--muted);
+    margin-bottom:10px;
+}
+
+.wallet-card h1{
+    font-size:50px;
+    color:var(--success);
+    margin-bottom:30px;
+}
+
+.wallet-card button{
+    padding:16px 35px;
+    border-radius:14px;
+    background:var(--success);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+}
+
+.wallet-card button:hover{
+    transform:translateY(-4px);
+}
+
+/* ---------- Profile ---------- */
+
+.profile{
+    max-width:500px;
+    margin:auto;
+    text-align:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:45px;
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),#1d4ed8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    margin-bottom:25px;
+}
+
+.profile h2{
+    margin-bottom:10px;
+}
+
+.profile p{
+    color:var(--muted);
+    margin-bottom:30px;
+}
+
+.profile button{
+    padding:14px 30px;
+    background:var(--danger);
+    color:#fff;
+    border-radius:12px;
+    font-weight:600;
+}
+
+/* ---------- Modal ---------- */
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    z-index:99999;
+}
+
+.modal-content{
+    width:95%;
+    max-width:450px;
+    background:#161b22;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    position:relative;
+}
+
+.modal-content h2{
+    margin-bottom:20px;
+}
+
+.modal-content button{
+    width:100%;
+    padding:14px;
+    background:var(--accent);
+    color:#fff;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.modal-content hr{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:25px 0;
+}
+
+#closeModal{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ---------- Toast ---------- */
+
+#toast{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#111827;
+    border-left:5px solid var(--success);
+    padding:18px 28px;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    opacity:0;
+    pointer-events:none;
+    transition:.35s;
+}
+
+#toast.show{
+    opacity:1;
+    transform:translateY(-10px);
+}
+
+/* ---------- Utility ---------- */
+
+.text-center{
+    text-align:center;
+}
+
+.mt-20{
+    margin-top:20px;
+}
+
+.mt-40{
+    margin-top:40px;
+}
+
+.mb-20{
+    margin-bottom:20px;
+}
+
+.success{
+    color:var(--success);
+}
+
+.warning{
+    color:var(--warning);
+}
+
+.danger{
+    color:var(--danger);
+}
+
+.glass{
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+}
+
+.fade{
+    animation:fade .5s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* =====================================================
+   TaskHub CSS - Part 3
+   Responsive • Footer • Animations • Final Polish
+===================================================== */
+
+/* Floating Animation */
+
+.float{
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* Glow */
+
+.glow{
+    box-shadow:0 0 20px rgba(79,140,255,.35);
+}
+
+/* Badges */
+
+.badge{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:50px;
+    background:var(--accent);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+}
+
+.badge.success{
+    background:var(--success);
+}
+
+.badge.warning{
+    background:var(--warning);
+}
+
+.badge.danger{
+    background:var(--danger);
+}
+
+/* Tables */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+}
+
+table th{
+    background:#111827;
+    padding:15px;
+    text-align:left;
+}
+
+table td{
+    padding:15px;
+    border-bottom:1px solid var(--border);
+}
+
+table tr:hover{
+    background:rgba(255,255,255,.03);
+}
+
+/* Progress */
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:40%;
+    background:linear-gradient(90deg,var(--accent),#2563eb);
+}
+
+/* Footer */
+
+footer{
+    margin-top:100px;
+    padding:50px 8%;
+    text-align:center;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+
+footer p{
+    margin-top:10px;
+}
+
+/* Hover */
+
+.card,
+.task-card,
+.wallet-card,
+.profile,
+.box{
+    transition:.35s;
+}
+
+.card:hover,
+.task-card:hover,
+.wallet-card:hover,
+.profile:hover{
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+/* Selection */
+
+::selection{
+    background:var(--accent);
+    color:#fff;
+}
+
+/* Image */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* Flex */
+
+.flex{
+    display:flex;
+}
+
+.flex-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.space-between{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.column{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Grid */
+
+.grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+/* Width */
+
+.w100{
+    width:100%;
+}
+
+.w50{
+    width:50%;
+}
+
+/* Padding */
+
+.p10{padding:10px;}
+.p20{padding:20px;}
+.p30{padding:30px;}
+.p40{padding:40px;}
+
+/* Margin */
+
+.m10{margin:10px;}
+.m20{margin:20px;}
+.m30{margin:30px;}
+.m40{margin:40px;}
+
+/* Radius */
+
+.round{
+    border-radius:50%;
+}
+
+.radius{
+    border-radius:20px;
+}
+
+/* Shadows */
+
+.shadow{
+    box-shadow:var(--shadow);
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.dashboard-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+gap:20px;
+padding:20px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.hero{
+padding:60px 0;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.dashboard-grid{
+grid-template-columns:1fr;
+}
+
+.task-grid{
+grid-template-columns:1fr;
+}
+
+.wallet-card{
+padding:30px;
+}
+
+.profile{
+padding:30px;
+}
+
+.balance-card h1{
+font-size:38px;
+}
+
+section{
+padding:40px 20px;
+}
+
+}
+
+@media(max-width:500px){
+
+.logo{
+font-size:24px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.balance-card{
+padding:30px;
+}
+
+.wallet-card h1{
+font-size:36px;
+}
+
+.avatar{
+width:90px;
+height:90px;
+font-size:40px;
+}
+
+.modal-content{
+padding:25px;
+}
+
+#toast{
+right:15px;
+left:15px;
+bottom:15px;
+}
+
+}
+
+/* Loader Hide */
+
+.loaded #loader{
+display:none;
+}
+
+/* Smooth */
+
+.page{
+animation:fade .35s ease;
+}
+
+/* End */
+
+body{
+padding-bottom:60px;
+}
