@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TaskHub - Earn Rewards</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script defer src="supabase.js"></script>
+<script defer src="app.js"></script>
+
+</head>
+
+<body>
+
+<div id="loader">
+    <div class="loader-circle"></div>
+    <h2>TaskHub</h2>
+</div>
+
+<nav>
+
+<div class="logo">
+
+TaskHub
+
+</div>
+
+<ul>
+
+<li data-page="home">Home</li>
+
+<li data-page="tasks">Tasks</li>
+
+<li data-page="wallet">Wallet</li>
+
+<li data-page="profile">Profile</li>
+
+</ul>
+
+<div>
+
+<button id="loginBtn">
+
+Login
+
+</button>
+
+</div>
+
+</nav>
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<h1>
+
+Earn Rewards Online
+
+</h1>
+
+<p>
+
+Complete simple tasks and withdraw manually using our secure Google Form.
+
+</p>
+
+<button id="startBtn">
+
+Start Earning
+
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="card">
+
+<h2 id="usersCount">
+
+0
+
+</h2>
+
+<p>
+
+Users
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+£0
+
+</h2>
+
+<p>
+
+Your Balance
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+0
+
+</h2>
+
+<p>
+
+Tasks Completed
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="dashboard" class="hidden page">
+
+<div class="dashboard">
+
+<div class="balance-card">
+
+<h3>
+
+Current Balance
+
+</h3>
+
+<h1 id="balance">
+
+£0.00
+
+</h1>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="box">
+
+<h4>
+
+Coins
+
+</h4>
+
+<h2 id="coins">
+
+0
+
+</h2>
+
+</div>
+
+<div class="box">
+
+<h4>
+
+Referral Bonus
+
+</h4>
+
+<h2>
+
+£0
+
+</h2>
+
+</div>
+
+<div class="box">
+
+<h4>
+
+Daily Bonus
+
+</h4>
+
+<button id="dailyBonus">
+
+Claim
+
+</button>
+
+</div>
+
+<div class="box">
+
+<h4>
+
+Withdraw
+
+</h4>
+
+<button id="withdrawBtn">
+
+Withdraw
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="tasks" class="page hidden">
+
+<h2>
+
+Available Tasks
+
+</h2>
+
+<div class="task-grid">
+
+<div class="task-card">
+
+<h3>
+
+Visit Website
+
+</h3>
+
+<p>
+
+Reward: 100 Coins
+
+</p>
+
+<button class="taskBtn">
+
+Start
+
+</button>
+
+</div>
+
+<div class="task-card">
+
+<h3>
+
+Daily Check-in
+
+</h3>
+
+<p>
+
+Reward: 50 Coins
+
+</p>
+
+<button class="taskBtn">
+
+Claim
+
+</button>
+
+</div>
+
+<div class="task-card">
+
+<h3>
+
+Invite Friend
+
+</h3>
+
+<p>
+
+Reward: 250 Coins
+
+</p>
+
+<button class="copyRef">
+
+Copy Link
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="wallet" class="page hidden">
+
+<h2>
+
+Wallet
+
+</h2>
+
+<div class="wallet-card">
+
+<h3>
+
+Current Balance
+
+</h3>
+
+<h1 id="walletBalance">
+
+£0.00
+
+</h1>
+
+<a
+
+href="YOUR_GOOGLE_FORM"
+
+target="_blank">
+
+<button>
+
+Withdraw
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+<section id="profile" class="page hidden">
+
+<div class="profile">
+
+<div class="avatar">
+
+👤
+
+</div>
+
+<h2 id="username">
+
+Guest
+
+</h2>
+
+<p id="email">
+
+Not Logged In
+
+</p>
+
+<button id="logoutBtn">
+
+Logout
+
+</button>
+
+</div>
+
+</section>
+
+<div id="authModal" class="modal">
+
+<div class="modal-content">
+
+<span id="closeModal">
+
+×
+
+</span>
+
+<h2>
+
+Login
+
+</h2>
+
+<input
+
+type="email"
+
+id="loginEmail"
+
+placeholder="Email">
+
+<input
+
+type="password"
+
+id="loginPassword"
+
+placeholder="Password">
+
+<button id="loginUser">
+
+Login
+
+</button>
+
+<hr>
+
+<h2>
+
+Register
+
+</h2>
+
+<input
+
+type="text"
+
+id="registerName"
+
+placeholder="Username">
+
+<input
+
+type="email"
+
+id="registerEmail"
+
+placeholder="Email">
+
+<input
+
+type="password"
+
+id="registerPassword"
+
+placeholder="Password">
+
+<button id="registerUser">
+
+Create Account
+
+</button>
+
+</div>
+
+</div>
+
+<div id="toast">
+
+Welcome
+
+</div>
+
+</body>
+
+</html>
