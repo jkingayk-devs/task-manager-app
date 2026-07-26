@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TaskHub - Earn Rewards</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>TaskHub</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -22,10 +32,17 @@
 
 <body>
 
+<!-- Loading -->
+
 <div id="loader">
-    <div class="loader-circle"></div>
-    <h2>TaskHub</h2>
+
+<div class="loader-circle"></div>
+
+<h2>TaskHub</h2>
+
 </div>
+
+<!-- Navigation -->
 
 <nav>
 
@@ -37,17 +54,37 @@ TaskHub
 
 <ul>
 
-<li data-page="home">Home</li>
+<li class="nav-link active"
+data-page="home">
 
-<li data-page="tasks">Tasks</li>
+Home
 
-<li data-page="wallet">Wallet</li>
+</li>
 
-<li data-page="profile">Profile</li>
+<li class="nav-link"
+data-page="tasks">
+
+Tasks
+
+</li>
+
+<li class="nav-link"
+data-page="wallet">
+
+Wallet
+
+</li>
+
+<li class="nav-link"
+data-page="profile">
+
+Profile
+
+</li>
 
 </ul>
 
-<div>
+<div class="nav-right">
 
 <button id="loginBtn">
 
@@ -59,7 +96,11 @@ Login
 
 </nav>
 
-<section id="home" class="page active">
+<!-- HOME -->
+
+<section
+id="home"
+class="page active">
 
 <div class="hero">
 
@@ -71,13 +112,15 @@ Earn Rewards Online
 
 <p>
 
-Complete simple tasks and withdraw manually using our secure Google Form.
+Complete simple online tasks,
+invite friends,
+and withdraw your earnings.
 
 </p>
 
 <button id="startBtn">
 
-Start Earning
+Get Started
 
 </button>
 
@@ -87,7 +130,7 @@ Start Earning
 
 <div class="card">
 
-<h2 id="usersCount">
+<h2 id="totalUsers">
 
 0
 
@@ -103,15 +146,15 @@ Users
 
 <div class="card">
 
-<h2>
+<h2 id="totalTasks">
 
-£0
+0
 
 </h2>
 
 <p>
 
-Your Balance
+Completed Tasks
 
 </p>
 
@@ -121,13 +164,13 @@ Your Balance
 
 <h2>
 
-0
+100%
 
 </h2>
 
 <p>
 
-Tasks Completed
+Free
 
 </p>
 
@@ -137,17 +180,19 @@ Tasks Completed
 
 </section>
 
-<section id="dashboard" class="hidden page">
+<!-- DASHBOARD -->
 
-<div class="dashboard">
+<section
+id="dashboard"
+class="page hidden">
 
 <div class="balance-card">
 
-<h3>
+<h4>
 
 Current Balance
 
-</h3>
+</h4>
 
 <h1 id="balance">
 
@@ -161,11 +206,11 @@ Current Balance
 
 <div class="box">
 
-<h4>
+<h3>
 
 Coins
 
-</h4>
+</h3>
 
 <h2 id="coins">
 
@@ -177,15 +222,15 @@ Coins
 
 <div class="box">
 
-<h4>
+<h3>
 
-Referral Bonus
+Referrals
 
-</h4>
+</h3>
 
-<h2>
+<h2 id="referrals">
 
-£0
+0
 
 </h2>
 
@@ -193,13 +238,30 @@ Referral Bonus
 
 <div class="box">
 
-<h4>
+<h3>
+
+Tasks
+
+</h3>
+
+<h2 id="completedTasks">
+
+0
+
+</h2>
+
+</div>
+
+<div class="box">
+
+<h3>
 
 Daily Bonus
 
-</h4>
+</h3>
 
-<button id="dailyBonus">
+<button
+id="dailyBonus">
 
 Claim
 
@@ -207,29 +269,15 @@ Claim
 
 </div>
 
-<div class="box">
-
-<h4>
-
-Withdraw
-
-</h4>
-
-<button id="withdrawBtn">
-
-Withdraw
-
-</button>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
-<section id="tasks" class="page hidden">
+<!-- TASKS -->
+
+<section
+id="tasks"
+class="page hidden">
 
 <h2>
 
@@ -237,7 +285,33 @@ Available Tasks
 
 </h2>
 
-<div class="task-grid">
+<div
+id="taskContainer"
+class="task-grid">
+
+<div class="task-card">
+
+<h3>
+
+Daily Login
+
+</h3>
+
+<p>
+
+Reward:
+50 Coins
+
+</p>
+
+<button
+class="taskBtn">
+
+Claim
+
+</button>
+
+</div>
 
 <div class="task-card">
 
@@ -249,35 +323,15 @@ Visit Website
 
 <p>
 
-Reward: 100 Coins
+Reward:
+100 Coins
 
 </p>
 
-<button class="taskBtn">
+<button
+class="taskBtn">
 
 Start
-
-</button>
-
-</div>
-
-<div class="task-card">
-
-<h3>
-
-Daily Check-in
-
-</h3>
-
-<p>
-
-Reward: 50 Coins
-
-</p>
-
-<button class="taskBtn">
-
-Claim
 
 </button>
 
@@ -293,11 +347,13 @@ Invite Friend
 
 <p>
 
-Reward: 250 Coins
+Reward:
+250 Coins
 
 </p>
 
-<button class="copyRef">
+<button
+id="copyReferral">
 
 Copy Link
 
@@ -308,8 +364,13 @@ Copy Link
 </div>
 
 </section>
+<!-- ===========================
+     WALLET
+=========================== -->
 
-<section id="wallet" class="page hidden">
+<section
+id="wallet"
+class="page hidden">
 
 <h2>
 
@@ -321,7 +382,7 @@ Wallet
 
 <h3>
 
-Current Balance
+Available Balance
 
 </h3>
 
@@ -331,25 +392,54 @@ Current Balance
 
 </h1>
 
-<a
+<p>
 
-href="YOUR_GOOGLE_FORM"
+Minimum withdrawal:
+£2.00
 
-target="_blank">
+</p>
 
-<button>
+<button
+id="withdrawBtn">
 
 Withdraw
 
 </button>
 
-</a>
+</div>
+
+<div class="wallet-card">
+
+<h3>
+
+Referral Link
+
+</h3>
+
+<input
+type="text"
+id="referralLink"
+readonly
+value="">
+
+<button
+id="copyReferralBtn">
+
+Copy Referral Link
+
+</button>
 
 </div>
 
 </section>
 
-<section id="profile" class="page hidden">
+<!-- ===========================
+     PROFILE
+=========================== -->
+
+<section
+id="profile"
+class="page hidden">
 
 <div class="profile">
 
@@ -359,19 +449,74 @@ Withdraw
 
 </div>
 
-<h2 id="username">
+<h2
+id="profileName">
 
 Guest
 
 </h2>
 
-<p id="email">
+<p
+id="profileEmail">
 
-Not Logged In
+Please login
 
 </p>
 
-<button id="logoutBtn">
+<div class="stats">
+
+<div class="card">
+
+<h2 id="profileCoins">
+
+0
+
+</h2>
+
+<p>
+
+Coins
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="profileBalance">
+
+£0.00
+
+</h2>
+
+<p>
+
+Balance
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="profileReferrals">
+
+0
+
+</h2>
+
+<p>
+
+Referrals
+
+</p>
+
+</div>
+
+</div>
+
+<button
+id="logoutBtn">
 
 Logout
 
@@ -381,13 +526,20 @@ Logout
 
 </section>
 
-<div id="authModal" class="modal">
+<!-- ===========================
+     LOGIN MODAL
+=========================== -->
+
+<div
+id="authModal"
+class="modal">
 
 <div class="modal-content">
 
-<span id="closeModal">
+<span
+id="closeModal">
 
-×
+&times;
 
 </span>
 
@@ -398,22 +550,17 @@ Login
 </h2>
 
 <input
-
 type="email"
-
 id="loginEmail"
-
 placeholder="Email">
 
 <input
-
 type="password"
-
 id="loginPassword"
-
 placeholder="Password">
 
-<button id="loginUser">
+<button
+id="loginUser">
 
 Login
 
@@ -428,30 +575,22 @@ Register
 </h2>
 
 <input
-
 type="text"
-
 id="registerName"
-
 placeholder="Username">
 
 <input
-
 type="email"
-
 id="registerEmail"
-
 placeholder="Email">
 
 <input
-
 type="password"
-
 id="registerPassword"
-
 placeholder="Password">
 
-<button id="registerUser">
+<button
+id="registerUser">
 
 Create Account
 
@@ -461,11 +600,109 @@ Create Account
 
 </div>
 
-<div id="toast">
+<!-- ===========================
+     WITHDRAW MODAL
+=========================== -->
+
+<div
+id="withdrawModal"
+class="modal">
+
+<div class="modal-content">
+
+<span
+id="closeWithdraw">
+
+&times;
+
+</span>
+
+<h2>
+
+Withdraw Request
+
+</h2>
+
+<input
+type="number"
+id="withdrawAmount"
+placeholder="Amount">
+
+<select
+id="withdrawMethod">
+
+<option>
+
+JazzCash
+
+</option>
+
+<option>
+
+EasyPaisa
+
+</option>
+
+<option>
+
+Binance
+
+</option>
+
+<option>
+
+PayPal
+
+</option>
+
+</select>
+
+<input
+type="text"
+id="withdrawAccount"
+placeholder="Account / Wallet">
+
+<button
+id="submitWithdraw">
+
+Submit Request
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ===========================
+     TOAST
+=========================== -->
+
+<div
+id="toast">
 
 Welcome
 
 </div>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+
+<footer>
+
+<p>
+
+© 2026 TaskHub
+
+</p>
+
+<p>
+
+Powered by Supabase & GitHub Pages
+
+</p>
+
+</footer>
 
 </body>
 
