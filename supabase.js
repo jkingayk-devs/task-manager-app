@@ -173,3 +173,19 @@ function showToast(text){
     },3000);
 
 }
+
+await supabase
+
+.from("transactions")
+
+.insert({
+
+user_id:user.id,
+
+type:"daily_bonus",
+
+amount:50,
+
+description:"Daily Bonus"
+
+});
