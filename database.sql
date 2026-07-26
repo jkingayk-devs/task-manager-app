@@ -126,3 +126,28 @@ on users(email);
 create index idx_withdraw_userid
 
 on withdraws(userid);
+create table transactions (
+    id uuid primary key default gen_random_uuid(),
+
+    user_id uuid references auth.users(id) on delete cascade,
+
+    type text not null,
+
+    amount integer not null,
+
+    description text,
+
+    created_at timestamp with time zone default now()
+);
+
+alter table transactions enable row level security;
+
+create policy "Users can view own transactions"
+on transactions
+for select
+using (auth.uid() = user_id);
+
+create policy "Users can insert own transactions"
+on transactions
+for insert
+with check (auth.uid() = user_id);
