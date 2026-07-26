@@ -1048,3 +1048,18 @@ animation:fade .35s ease;
 body{
 padding-bottom:60px;
 }
+select{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:#111827;
+    color:#fff;
+    font-size:15px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+select:focus{
+    border-color:var(--accent);
+}
